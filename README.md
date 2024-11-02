@@ -27,7 +27,7 @@ Voxit requires an OpenAI API key to function. You can get one [here](https://pla
 
 > [!NOTE]
 > Voxit will prompt you to enter your API key if you do not provide it as an argument.
-> It will then cache the key in a file called `.voxit` in your home directory in encrypted form for future use.
+> It will then cache the key in a file called `.openai/config` in your home directory in encrypted form for future use.
 > You can delete this cache with command `voxit clear`.
 
 ### Text-to-Speech
