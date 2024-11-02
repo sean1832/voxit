@@ -4,6 +4,12 @@ Voxit is a simple text-to-speech and speech-to-text CLI that uses the OpenAI API
 
 > If you like this project, please consider giving it a star! :star:
 
+## Features
+- Text-to-Speech
+- Speech-to-Text
+- Chunked audio and text processing for large files
+
+
 ## Requirements
 - OpenAI API key (get one [here](https://platform.openai.com/settings/organization/api-keys))
 - Python `3.8` or higher (download [here](https://www.python.org/downloads/)) and add to `PATH`
@@ -29,12 +35,13 @@ Voxit requires an OpenAI API key to function. You can get one [here](https://pla
 voxit tts "input.txt" -o "output.mp3"
 ```
 
-| Option           | Description      | Default | Options                                             |
-| ---------------- | ---------------- | ------- | --------------------------------------------------- |
-| `input_file`     | Input file path  | None    |                                                     |
-| `-o`, `--output` | Output file path | None    |                                                     |
-| `-k`, `--key`    | OpenAI API key   | None    |                                                     |
-| `-v`, `--voice`  | Voice name       | `onyx`  | `alloy`, `echo`, `onyx`, `fable`, `nova`, `shimmer` |
+| Option           | Description                              | Default | Options                                             |
+| ---------------- | ---------------------------------------- | ------- | --------------------------------------------------- |
+| `input_file`     | Input file path                          | None    |                                                     |
+| `-o`, `--output` | Output file path                         | None    |                                                     |
+| `-k`, `--key`    | OpenAI API key                           | None    |                                                     |
+| `-v`, `--voice`  | Voice name                               | `onyx`  | `alloy`, `echo`, `onyx`, `fable`, `nova`, `shimmer` |
+| `-s`, `--speed`  | Speaking speed (between `0.25` to `4.0`) | `1.0`   |                                                     |
 
 
 

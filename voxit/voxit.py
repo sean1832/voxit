@@ -114,12 +114,16 @@ class OpenAIHandler:
         text,
         output_path,
         voice: Literal["alloy", "echo", "fable", "onyx", "nova", "shimmer"] = "onyx",
+        speed: float = 1.0,
     ):
         import shutil
         import tempfile
 
         from pydub import AudioSegment
         from tqdm import tqdm
+
+        if speed < 0.25 or speed > 4.0:
+            raise ValueError("Speed must be between 0.25 and 4.0")
 
         # Create temp directory for chunk files
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -133,7 +137,9 @@ class OpenAIHandler:
             # Generate audio for each chunk with progress bar
             for i, chunk in enumerate(tqdm(chunks, desc="Generating audio chunks")):
                 temp_file = temp_dir / f"chunk_{i}.mp3"
-                response = self.client.audio.speech.create(model="tts-1", voice=voice, input=chunk)
+                response = self.client.audio.speech.create(
+                    model="tts-1", voice=voice, input=chunk, speed=speed
+                )
                 # Write response directly to file
                 with open(temp_file, "wb") as f:
                     f.write(response.content)
@@ -271,6 +277,13 @@ def parser():
         default="onyx",
         choices=["alloy", "echo", "onyx", "fable", "nova", "shimmer"],
     )
+    tts.add_argument(
+        "-s",
+        "--speed",
+        help="The speed of the generated audio. Select a value from `0.25` to `4.0`",
+        type=float,
+        default=1.0,
+    )
 
     # stt subparser
     stt = sub_parsers.add_parser("stt", help="speech to text using Whisper model")
@@ -331,7 +344,7 @@ def main():
         if not output_path.suffix == ".mp3":
             raise ValueError("Output file must be an .mp3 file")
 
-        openai_handler.text_to_speech(inputs, output_path, voice=args.voice)
+        openai_handler.text_to_speech(inputs, output_path, voice=args.voice, speed=args.speed)
         print(f"Audio saved to {output_path}")
     elif args.command == "stt":
         output_path = Path(args.output) if args.output else Path("output.txt")
