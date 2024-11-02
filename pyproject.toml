@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 authors = [{ name = "sean1832", email = "dev@zekezhang.com" }]
 classifiers = ["Development Status :: 1 - Planning", "Environment :: Console"]
-license = { file = "LICENSE" }
+license = "Apache-2.0"
 dependencies = [
     "openai==1.53.0",
     "pydub>=0.25.1",
