@@ -328,7 +328,7 @@ def main():
             ConfigManager.save_config({"API_KEY": user_entered_key}, encryption=True)
             api_key = user_entered_key
         except KeyError:
-            print("API key not found in config file. Try to run `clear_cache` command.")
+            print("API key not found in config file. Try to run `clear` command.")
     else:
         ConfigManager.save_config({"API_KEY": api_key}, encryption=True)
 
