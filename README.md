@@ -28,6 +28,7 @@ pip install voxit
 Github:
 ```bash
 git clone https://github.com/sean1832/voxit.git
+cd voxit
 pip install .
 ```
 
