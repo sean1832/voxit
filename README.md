@@ -1,4 +1,8 @@
 # Voxit
+![PyPI - Version](https://img.shields.io/pypi/v/voxit)
+![Static Badge](https://img.shields.io/badge/python-3.8%2B-blue)
+![GitHub License](https://img.shields.io/github/license/sean1832/voxit)
+
 
 Voxit is a simple text-to-speech and speech-to-text CLI that uses the OpenAI API to generate human-like speech or transcribe human speech to text.
 
@@ -16,7 +20,12 @@ Voxit is a simple text-to-speech and speech-to-text CLI that uses the OpenAI API
 - ffmpeg (download [here](https://ffmpeg.org/download.html)) and add to `PATH`
 
 ## Installation
-From github:
+PyPI:
+```bash
+pip install voxit
+```
+
+Github:
 ```bash
 git clone https://github.com/sean1832/voxit.git
 pip install .
@@ -56,3 +65,7 @@ voxit stt "input.mp3" -o "output.txt"
 | `-o`, `--output` | Output file path | None    |         |
 | `-k`, `--key`    | OpenAI API key   | None    |         |
 
+### Clear Cache
+```bash
+voxit clear
+```
