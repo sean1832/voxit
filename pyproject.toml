@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voxit"
+version = "0.0.1"
+description = "A simple text to speech & speech to text tool using OpenAI API"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "sean1832", email = "dev@zekezhang.com" }]
+classifiers = ["Development Status :: 1 - Planning", "Environment :: Console"]
+license = { file = "LICENSE" }
+dependencies = [
+    "openai==1.53.0",
+    "pydub>=0.25.1",
+    "cryptography>=43.0.3",
+    "halo>=0.0.31",
+    "tqdm>=4.66.6",
+]
+
+[project.scripts]
+voxit = "voxit.voxit:main"
+
+[project.urls]
+Homepage = "https://github.com/sean1832/voxit"
+Issues = "https://github.com/sean1832/voxit/issues"

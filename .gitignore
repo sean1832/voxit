@@ -1,0 +1,25 @@
+# text files
+*.txt
+*.log
+*.srt
+*.vtt
+
+# audio files
+*.mp3
+*.wav
+*.opus
+*.flac
+*.acc
+*.pcm
+
+# python files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.egg-info/
+venv/
+*.env
+build
+dist
+
